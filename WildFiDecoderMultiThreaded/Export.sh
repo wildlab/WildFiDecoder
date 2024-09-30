@@ -3,10 +3,13 @@
 # Detect the current shell profile file
 if [ -f ~/.bashrc ]; then
     PROFILE_FILE=~/.bashrc
+    echo "detected bashrc"
 elif [ -f ~/.bash_profile ]; then
     PROFILE_FILE=~/.bash_profile
+    echo "detected bash_profile"
 elif [ -f ~/.zshrc ]; then
     PROFILE_FILE=~/.zshrc
+    echo "detected zshrc"
 else
     echo "No compatible shell profile file found."
     exit 1

@@ -36,17 +36,34 @@ run_jar() {
         echo "Java not found! Please install JRE or set JAVA_HOME."
         exit 1
     fi
+    
+    # Check if the script is executed directly or from PATH and resolve the full path
+    if [ -n "$BASH_SOURCE" ]; then
+        # Use $BASH_SOURCE to reliably find the path even if the script is sourced
+        SCRIPT_PATH=$(readlink -f "$BASH_SOURCE")
+    else
+        # Fallback to which if $BASH_SOURCE is not available (e.g., older Bash versions)
+        SCRIPT_PATH=$(which "$0")
+    fi
 
-    # Execute the JAR
+    # Get the directory where the script resides
+    SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
+      
+    # The JAR file name (replace this with your actual JAR file name)
     JAR_FILE="WildFiDecoderStandalone.jar"
-    if [ ! -f "$JAR_FILE" ]; then
-        echo "JAR file $JAR_FILE not found in the current directory."
+    
+    # Execute the JAR
+    JAR_FILE_WITH_DIRECTORY="$SCRIPT_DIR/$JAR_FILE"
+    
+    echo "$JAR_FILE_WITH_DIRECTORY"
+
+    if [ ! -f "$JAR_FILE_WITH_DIRECTORY" ]; then
+        echo "JAR file $JAR_FILE_WITH_DIRECTORY not found in the current directory."
         exit 1
     fi
 	
-	
 	# -Xmx%HeapMemoryMB%m
-    "$JAVA_CMD" -Xms2g  -XX:+UseG1GC -XX:ParallelGCThreads=4 -XX:ConcGCThreads=2 -XX:+UseAdaptiveSizePolicy -XX:MaxGCPauseMillis=200 -Djava.util.concurrent.ForkJoinPool.common.parallelism=8 -jar "$JAR_FILE"
+    "$JAVA_CMD" -Xms2g  -XX:+UseG1GC -XX:ParallelGCThreads=4 -XX:ConcGCThreads=2 -XX:+UseAdaptiveSizePolicy -XX:MaxGCPauseMillis=200 -Djava.util.concurrent.ForkJoinPool.common.parallelism=8 -jar "$JAR_FILE_WITH_DIRECTORY"
 }
 
 # Main execution flow
