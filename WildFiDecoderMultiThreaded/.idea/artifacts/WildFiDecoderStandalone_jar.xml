@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WildFiDecoderStandalone:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WildFiDecoderStandalone_jar</output-path>
+    <root id="archive" name="WildFiDecoderStandalone.jar">
+      <element id="module-output" name="WildFiDecoderStandalone" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jline/jline/3.23.0/jline-3.23.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/me/tongfei/progressbar/0.10.0/progressbar-0.10.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
