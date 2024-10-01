@@ -21,7 +21,7 @@ Additionally, the directory with the decoder needs to be added to the system PAT
 
 In the end the PATH variable should look similar to this:
 
-![EnviromentVariables](/Decoder/WildFiDecoderMultiThreaded/pictures/EnvVar.png?raw=true)
+![EnviromentVariables](/WildFiDecoderMultiThreaded/pictures/EnvVar.png?raw=true)
 
 **Mac OS X**
 
@@ -50,4 +50,4 @@ Under Windows you then need to execute the `WildFiDecoderMT.bat` and under Linux
 
 Depending on your operating system the decoder should start up looking like this:
 
-![EnviromentVariables](/Decoder/WildFiDecoderMultiThreaded/pictures/PowerShell.png?raw=true)
+![EnviromentVariables](/WildFiDecoderMultiThreaded/pictures/PowerShell.png?raw=true)
